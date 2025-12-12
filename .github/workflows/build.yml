@@ -162,35 +162,17 @@ jobs:
       - name: Clone DontEatMyContent
         run: git clone --quiet https://github.com/therealFoxster/DontEatMyContent.git
 
-      - name: Clone YouMute
-        run: git clone --quiet https://github.com/PoomSmart/YouMute.git
-
       - name: Clone YTABGoodies
         run: git clone --quiet https://github.com/PoomSmart/YTABGoodies.git
 
-      - name: Clone YouTimeStamp
-        run: git clone --quiet https://github.com/Tonwalter888/YouTimeStamp.git
-    
-      - name: Clone YouLoop
-        run: git clone --quiet https://github.com/Tonwalter888/YouLoop.git
-
       - name: Clone Alderis
         run: git clone --quiet https://github.com/hbang/Alderis.git
-
-      - name: Clone YouSlider
-        run: git clone --quiet https://github.com/PoomSmart/YouSlider.git
 
       - name: Clone YouChooseQuality
         run: git clone --quiet https://github.com/PoomSmart/YouChooseQuality.git
 
       - name: Clone YTSilentVote
         run: git clone --quiet https://github.com/PoomSmart/YTSilentVote.git
-
-      - name: Clone YouShare
-        run: git clone --quiet https://github.com/Tonwalter888/YouShare.git
-
-      - name: Clone Gonerino
-        run: git clone --quiet https://github.com/castdrian/Gonerino.git
       
       - name: Build YouPiP
         run: |
@@ -264,43 +246,11 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YouMute
-        run: |
-          cd YouMute
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/ym.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos 
-
       - name: Build YTABGoodies
         run: |
           cd YTABGoodies
           make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
           mv packages/*.deb ${{ github.workspace }}/ytgoodab.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
-      - name: Build YouTimeStamp
-        run: |
-          cd YouTimeStamp
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/youts.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
-      - name: Build YouLoop
-        run: |
-          cd YouLoop
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/youloop.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
-      - name: Build YouSlider
-        run: |
-          cd YouSlider
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/youslider.deb
         env:
           THEOS: ${{ github.workspace }}/theos
 
@@ -327,22 +277,6 @@ jobs:
           mv packages/*.deb ${{ github.workspace }}/ytnovote.deb
         env:
           THEOS: ${{ github.workspace }}/theos  
-
-      - name: Build YouShare
-        run: |
-          cd YouShare
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/youshare.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-          
-      - name: Build Gonerino
-        run: |
-          cd Gonerino
-          make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          mv packages/*.deb ${{ github.workspace }}/gonerino.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
   
       - name: Inject Tweaks Into IPA
         run: |
